@@ -1,6 +1,5 @@
 
 function addLoadEvent(func){
-//--1
   var oldonload = window.onload;
 
   if(typeof oldonload != 'function'){
