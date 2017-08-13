@@ -10,18 +10,27 @@ function addLoadEvent(func) {
     }
   }
 }
-addLoadEvent(testJS())
+addLoadEvent(testConst())
 
 
-// call apply bind
-function testBind(){
+// 测试 const  
+function testConst(){
+
+  // 1. ------声明常量，并只在所在区域l内有效
+  {
+    const a = 100;
+     console.log(a);
+     a = 999l
+    }
+
+
 
 
 }
 
 
-
-function testJS() {
+//  T
+function testArrowFunction() {
   console.log("hello wo11rld");
   // 简化 的写法
   var f0 = function(v) {
