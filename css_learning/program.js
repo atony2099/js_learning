@@ -44,8 +44,6 @@ function expandF(){
 }
 
 
-
-
 //====== es6 语法 ==== (let  和 const 测试) =====
 function letAndConstTest(){
   {
