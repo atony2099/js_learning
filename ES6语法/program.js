@@ -61,5 +61,16 @@ function letAndConstTest(){
 // ====== es6语法 默认参数 =======
 function defaultfun(height,color='red'){
   console.log(color,height);
-
 }
+
+
+//  ====== es6语法
+function shortV(){
+  var c ='jim', d =123
+  var o = {
+    c,
+    d
+  }
+  console.log(o);
+}
+addLoadEvent(shortV())

@@ -48,7 +48,6 @@ function testJS1(){
        },
        // this继承子外部， 是 oo UI想
        fn2:() => console.log(this),
-
        fn3:function(){
          var f=function(){
              console.log(this); // 没有调用者window对象
@@ -58,12 +57,29 @@ function testJS1(){
          f()
    }
 
-
    };
   oo.fn();
   oo.fn1();
   oo.fn2();
   oo.fn3();
+
 }
 
+function bbb(){
+  function kk(name,data){
+    var cc = {
+      aname:name,
+      data
+    }
+    console.log(cc);
+  }
+
+  kk("tang",1990)
+
+  console.log(kk.userinfo);
+}
+
+
 addLoadEvent(testJS1())
+
+addLoadEvent(bbb())
