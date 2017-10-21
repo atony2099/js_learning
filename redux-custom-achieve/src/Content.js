@@ -1,7 +1,8 @@
-import React, { Component} from 'react'
+ bmnhjimport React, { Component} from 'react'
 import ThemeSwitch from './ThemeSwitch.js'
 import PropTypes from 'prop-types'
-import {connect} from './Connect.js'
+
+import {connect} from 'react-redux'
 
 class Content extends Component {
   static PropTypes = {

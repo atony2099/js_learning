@@ -7,10 +7,7 @@ import Header from './Header.js'
 import Content from './Content.js'
 
 
-
-
 class App extends Component {
-
   render() {
     return (
       <div className="App">
@@ -19,7 +16,6 @@ class App extends Component {
       </div>
     );
   }
-
 }
 
 export default App;
