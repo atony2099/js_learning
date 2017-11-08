@@ -1,0 +1,55 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+
+  var get = function(a){
+    console.log(c);
+    // var c = a;
+    console.log(c);
+  }
+//  get(12);
+
+
+// ====== 变量的提升问题 ====
+// 由于var 定义的作用域是函数， 隐含着 定义 var a变量的时候，在函数
+//  的开头定义 var a;
+
+var v='Hello World';
+(function(){
+    alert(v);
+    var v='I love you==';
+})()
+
+
+
+let c = 100
+function go(){
+  let c = 99;
+  console.log(c);
+}
+console.log(c);
+go();
+
+
+
+
+// ===== 函数作用域 ，无视块级, 把块忽略掉
+var x = 1;
+console.log(x); // 1
+if (true) {
+  var x = 2;
+  console.log(x); //2
+}
+console.log(x);// 2 === 如果在oc 则是1;
+
+</script>
+
+
+</head>
+<body>
+  <div><code> hello world </code> </div>
+</body>
+</html>

@@ -11,18 +11,30 @@ function addLoadEvent(func) {
   }
 }
 // addLoadEvent(testArrowFunction())
-addLoadEvent(defaultfun())
+addLoadEvent(xiGou001())
+// addLoadEvent(shortV());
 
 
 function xiGou001(){
   var origin = {
     name: "fenglin",
     age:100,
+    money:999,
+    like:"man",
+    address:{
+      code:1000,
+      floor: "5th"
+    }
   }
-  var {name:newName,
-    age:newAge,
+  // 取出并赋予变量新的名字
+  var {name:myname,
+    age,
   } = origin;
-  console.log(newAge);
+  console.log(myname);
+
+  // 嵌套取出
+  var {name,address:{floor}} = origin;
+  console.log(floor,name);
 }
 
 
@@ -73,4 +85,3 @@ function shortV(){
   }
   console.log(o);
 }
-addLoadEvent(shortV())

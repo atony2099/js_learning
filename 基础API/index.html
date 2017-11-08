@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+  function delayedAlert(){
+    timeID = window.setTimeout(showAlert,1000)
+  };
+
+  function showAlert(){
+    alert("hello")
+  }
+
+  function clearAlert(){
+    window.clearTimeout(timeID)
+  }
+  function get(button){
+      var rect = button.getClientRects()[0];
+      console.log(rect);
+  }
+
+  </script>
+  <style media="screen">
+    .first {
+      padding: 0px;
+      width: 400px;
+      height: 400px;
+      padding: 100px;
+      border-left: 100px;
+      margin: -8px;
+      box-sizing: border-box;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <button class="first" onclick="get(this);">getRect</button>
+  <button onclick="delayedAlert();">Show an alert box after two seconds</button>
+  <button onclick="clearAlert();">Cancel alert before it happens</button>
+  <script type="text/javascript" src="createObject.js">
+	</script>
+</body>
+
+</html>

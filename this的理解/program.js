@@ -10,7 +10,7 @@ function addLoadEvent(func) {
     }
   }
 }
-addLoadEvent(testJS())
+
 
 function testJS() {
     // 1. this指向 函数的调用者
@@ -34,6 +34,7 @@ function testJS1(){
   // 2. creat context;
   var oo  = {
       name:"jim",
+      // 继承自外部，外部context是this
       arrow: () => console.log(this),
       fn:function(){
           setTimeout(function(){
@@ -58,6 +59,7 @@ function testJS1(){
    }
 
    };
+  oo.arrow() 
   oo.fn();
   oo.fn1();
   oo.fn2();
@@ -79,7 +81,7 @@ function bbb(){
   console.log(kk.userinfo);
 }
 
-
+// addLoadEvent(testJS())
 addLoadEvent(testJS1())
 
-addLoadEvent(bbb())
+// addLoadEvent(bbb())

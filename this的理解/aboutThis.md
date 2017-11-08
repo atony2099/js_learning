@@ -1,12 +1,9 @@
 #### this
 function do(){
-
+  {this} // defalut  has a this but you can see it obviously
+  this.hello()
 }
-
-调用函数的时候，实际上调用的是
-call(context,do()),context是函数的调用者， 函数中的this就是这个cotext，
-
-1. 在全局作用域，或者无调用者的时候，默认传入的是window对象
-2. 在有调用者的时候，this指代就是那个调用者
-
-3. 箭头函数比较特殊，她的context继承外部
+// ======
+// 普通函数：
+1. this = 调用者
+2. 箭头函数， this == 继承自外部function的this，如果没有就是全局

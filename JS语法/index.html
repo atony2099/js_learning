@@ -4,10 +4,30 @@
   <meta charset="UTF-8">
   <title>Document</title>
 
+  <script type="text/javascript">
+    function testFor(){
+      var objc = {
+        name:"tang",
+        age:100
+      }
+      for (var variable in objc) {
+        console.log(typeof(variable))
+        console.log(variable,"======");
+        console.log(objc[variable]);
+      }
+    }
+    testFor();
+
+
+
+
+  </script>
+
+
+
+
 </head>
 <body>
   <div><code> hello world </code> </div>
 </body>
-	<script type="text/javascript" src="program.js">
-	</script>
 </html>
