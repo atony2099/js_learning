@@ -11,9 +11,26 @@ function addLoadEvent(func) {
   }
 }
 // addLoadEvent(testArrowFunction())
-addLoadEvent(xiGou001())
+addLoadEvent(testF())
 // addLoadEvent(shortV());
 
+
+
+function testF(){
+
+
+  function name(data){
+
+      let a = {
+        data
+
+      }
+      console.log(a);
+    }
+
+    let c = 100;
+  name(c);
+}
 
 function xiGou001(){
   var origin = {
@@ -46,12 +63,11 @@ function expandF(){
   const object = {a:1,b:4};
   const object0 = object
   console.log(object0);
-
   const object2 = { ...object };
   // 其实和普通的指赋值没有太大区别
   console.log(object2);
   // 2. 覆盖 ， b是一个新的对象
-  const object3 = {...object,b:100,c:1000};
+  const object3 = {...object,a:100,b:1000};
   console.log(object3);
 }
 

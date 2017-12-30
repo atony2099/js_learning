@@ -72,7 +72,7 @@ function expandF(){
   const object2 = { ...object };
   // 1.其实和普通的指赋值没有太大区别
   console.log(object2);
-  // 2. 覆盖 ， b是一个新的对象
+  // 2. 覆盖 ，有相同的变量名，后面会覆盖前面
   const object3 = {...object,b:100,c:1000};
   console.log(object3);
 }

@@ -1,0 +1,63 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+    // 数组 增加
+    var ar1 = [1,2,3];
+    var ar2 = [4,5];
+
+    // 1. 数组的增加
+    var ar3 = ar1.concat(ar2,ar1);
+    console.log(ar3);
+    ar3.push(100);
+    console.log(ar3);
+
+    // 2.A.数组 push -- pop
+    // === push
+    var arr001 = [1,2,3];
+    arr001.push(4,6,7);
+    console.log(arr001);
+    // === pop
+    arr001.pop();
+    console.log(arr001);
+    arr001.pop();
+    console.log(arr001);
+
+    //2.B.数组   shift;unshift
+    var arr002 =[0,1,2];
+    arr002.unshift(-1,-2);
+    console.log(arr002);
+    arr002.shift();
+    console.log(arr002);
+
+    // 3. forEach
+    const aqq = [1,2,3,4];
+    aqq.forEach(function(ele){
+        console.log(ele * 10);
+    });
+
+
+
+
+    // 4.filter
+    var arry004 = ["jimm","tom","davide"]
+    console.log(
+      arry004.filter((ele,index) =>
+        ele.length >4
+     )
+    );
+
+
+  let a =   encodeURIComponent("tang")
+
+  console.log(a);
+
+
+
+  </script>
+</head>
+<body>
+  hello world
+</body>
+</html>
