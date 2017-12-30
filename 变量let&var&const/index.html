@@ -24,18 +24,6 @@ var v='Hello World';
 })()
 
 
-
-let c = 100
-function go(){
-  let c = 99;
-  console.log(c);
-}
-console.log(c);
-go();
-
-
-
-
 // ===== 函数作用域 ，无视块级, 把块忽略掉
 var x = 1;
 console.log(x); // 1
@@ -44,6 +32,18 @@ if (true) {
   console.log(x); //2
 }
 console.log(x);// 2 === 如果在oc 则是1;
+
+
+
+// ==== 块级的作用域
+let c = 100
+function go(){
+  let c = 99;// 只能在内部访问到。没有重新定义c
+  console.log(c);
+}
+console.log(c);
+go();
+
 
 </script>
 

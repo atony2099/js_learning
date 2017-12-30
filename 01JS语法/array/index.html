@@ -7,11 +7,17 @@
     var ar1 = [1,2,3];
     var ar2 = [4,5];
 
-    // 数组的增加
-    var ar3 = ar1.concat(ar2,ar1);
-    console.log(ar3);
-    ar3.push(100);
-    console.log(ar3);
+// ===========concat
+// contact对原数组无影响
+    var arrLa = ar1.concat(ar2)
+    console.log(ar1,arrLa,"contace");
+
+
+    var ar1Slice = ar1.slice(0,2);
+    console.log(ar1,ar1Slice);
+
+
+
 
 
   </script>
