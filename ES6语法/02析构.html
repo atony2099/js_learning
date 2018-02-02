@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+
+// 1. 嵌套解析
+// a. 数组的嵌套 ==============
+var [a, [[[c]]]] = [1,[[[1000]]]];
+console.log(a, c);
+
+//  b.对象的嵌套====
+let {name,info,info:{age}} = {name:"tang",info:{age:99,location:'changtai'}};
+console.log(name,info,age);
+
+
+// 2. 析构的不完全解析
+ let [x]  = [100,2,5,10];
+ console.log(x)
+
+ // 3. 析构跟变量的顺序无关！！！！！！
+// 根据变量名找到同名的变量
+
+
+
+
+ // ========1. 析构析构实际使用
+ // a. 交换变量
+let first = 1;
+let second = 100;
+[second,first] = [first,second];
+console.log(first,second);
+
+
+// b.从函数返回多个值
+function exapmle(){
+  return {
+    firstName:"Tang",
+    firstAge:1000
+  }
+}
+
+let {firstName,firstAge} = exapmle()
+
+console.log(firstName,firstAge);
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+  <div>hello world</div>
+</body>
+	</script>
+</html>

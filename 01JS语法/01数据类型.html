@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+    function baseNum(){
+      var a = 100;
+      var b = a ;
+      a = 999;
+      console.log(b);
+    }
+    baseNum();
+
+    function baseNum2(){
+      var a = {age:1000};
+      var b = a ;
+      a.age = 999;
+      console.log(a.age);
+    }
+    baseNum2();
+
+    var per = {};
+    per.age   = 100;
+    per.name  = "tang";
+    console.log(per);
+
+
+
+
+  </script>
+</head>
+<body>
+  <div>hello world11</div>
+</body>
+	<script type="text/javascript" src="program.js">
+	</script>
+</html>

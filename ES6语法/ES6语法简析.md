@@ -1,35 +1,8 @@
 
-## 析构的概念
+# 析构的概念
 [destructing](http://blog.csdn.net/lihongxun945/article/details/48935133)
 > 从数组和对象中解析值。
 > 快速初始化值得方式
-
-###数组
-```
-var [a,b,c] = [10,100,99];
-console.log(a,b,c);
-
-var [a,...z] = [101,102,103];
-console.log(z);
-```
-### 对象
-```
-var origin = {
-  name:"tang",
-  age:99,
-  location:"bj",
-  address: {
-    code:100;
-    floor:"5th"
-  }
-
-}
-
-var {name:newName, location} = d; //tang 99
-var {name, location} = d; // tang 99
-var  {name,address:{floor}} = d; // tang 99
-```
-** 取出对应的值，（允许多层嵌套，只要左右边的结构能对应收 ）**
 
 #### 原理
 ```javascript
@@ -40,19 +13,8 @@ var name = _name$age$gender.name;
 
 
 
+# 扩展运算符
 
-## ... 的两种作用，收纳（rest） 和展开
-
-#### 收纳 相当于arguments
-```
-function print(...a){
-  console.log(a,a[0],a[1],a[2],a[3]);
-}
-
-print("d","e",123);
-```
-
-#### 展开
 
 ```javascript
 // a.数组
@@ -76,6 +38,7 @@ function expandF(){
   const object3 = {...object,b:100,c:1000};
   console.log(object3);
 }
+
 
 ```   
 [展开函数](http://www.cnblogs.com/chrischjh/p/4848934.html)

@@ -1,0 +1,127 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <script type="text/javascript">
+  // 1.=========== this 指代的是函数的调用者
+  // a. 调用者是全局对象
+  console.log(this);
+  function testJS() {
+      console.log(this);
+  }
+  // b.调用者是全局对象
+  testJS();
+  // c. 调用者是某个对象 --- this
+  var obj = {
+    age: 18,
+    f: function(){
+      console.log(this);
+    }
+  }
+  obj.f();
+
+  // 2.====================通过bind让this指向某个对象
+  function sayHi(){
+    console.log(this,"hi====");
+  }
+  sayHi();
+
+
+  var obj2  = {name:11}
+  var newHi  = this.sayHi.bind(obj2)
+  newHi();
+
+
+// 3. 箭头函数没有独立的function, 包含该箭头函数最近一个funciton的上下文
+
+// a --- settimeOut 问题
+var obj = {
+  say: function () {
+    setTimeout(function () {
+      console.log(this)
+    });
+  }
+}
+obj.say();// 由于settimeOut没有直接的调用者， 所以默认是window
+
+//
+var objkk = {
+  say: function() {
+    setTimeout(() => {
+      console.log(this) // 继承自say objkk;
+    })
+  }
+}
+objkk.say() //
+
+var obj = {
+say: function () {
+  var f1 = () => {
+    console.log(this); // obj  继承自say
+    setTimeout(() => {
+      console.log(this); // obj 继承自1
+    })
+  }
+  f1();
+  }
+}
+obj.say()
+
+
+
+// 4. ===========  箭头函数解决问题 ==
+var objall = {
+    birth: 1990,
+    getAge: function () {
+        var b = this.birth; // 1990
+        var fn = function () {
+            return new Date().getFullYear() - this.birth;
+        };
+
+        return fn();//由于直接调用fn() this指向window或undefined
+    }
+};
+
+console.log(objall.getAge());
+
+var objall2 = {
+    birth: 1990,
+    getAge: function () {
+        var b = this.birth; // 1990
+        var fn = function () {
+            return new Date().getFullYear() - this.birth;
+        };
+        var newFn = fn.bind(this);// 手动将 fn绑定 objall2 上
+        return newFn();
+    }
+};
+
+console.log(objall2.getAge());
+
+
+var objall3 = {
+    birth: 1990,
+    getAge: function () {
+        var b = this.birth; // 1990
+        var fn = () => new Date().getFullYear() - this.birth;
+        return fn();//由于直接调用fn() this指向window或undefined
+    }
+};
+
+console.log(objall3.getAge());
+
+
+
+
+
+
+  </script>
+
+</head>
+<body>
+  <div>hello world</div>
+</body>
+
+</html>

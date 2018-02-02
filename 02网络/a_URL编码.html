@@ -5,14 +5,15 @@
   <title>Document</title>
 
   <script type="text/javascript">
-    var test1="http://www.haorooms.com/My first/";
+  //1. encodeURI:假定转义的是整个url， 不会对 / ？ 转义
+  // ===== encodeURI 适用于整个url
+  // 2. encodeURIComponent  假定转义的是URIComponent,会对/转义
+  // ==== 适用于parmas
+    var test1="http://www.haorooms.com/Myfirst?123";
     var nn=encodeURI(test1);
     console.log(nn);
     var bb=encodeURIComponent(test1);
     console.log(bb);
-
-
-
   </script>
 
 

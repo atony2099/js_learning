@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+
+  // 1. ======= 默认参数
+  function outName(age,name= 'tang'){
+    console.log(name + age);
+  }
+  outName(18)
+
+
+
+// 2. ======== 调用时解析，之前的调用不会对下次产生影响
+function append(value, array = []) {
+  array.push(value);
+  return array;
+}
+
+console.log(append(1)); //[1]
+console.log(append(2));  //[2], not [1, 2]
+
+
+
+
+
+
+  </script>
+
+</head>
+<body>
+  <div><code> hello world </code> </div>
+</body>
+</html>

@@ -13,9 +13,6 @@ function addLoadEvent(func) {
 // addLoadEvent(testArrowFunction())
 addLoadEvent(testF())
 // addLoadEvent(shortV());
-
-
-
 function testF(){
 
 

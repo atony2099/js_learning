@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+  // 1. ==== var的变量提升
+
+// .1 var 会自动提升到函数顶部
+function testV(){
+// var a; // 运行时会自动调用这句
+  console.log(a); //
+   var a = 100;
+}
+testV()
+
+// 2.作用域==== 由于变量提升原因，var 组用于整个函数
+function testV2(){
+  // for (let  i =0; i< 5; i++){// let 作用域只在快级
+  //
+  // }
+  for (var i =0; i< 5; i++){// var 会自动函数提升
+
+  }
+
+  console.log(i);
+}
+
+testV2()
+
+
+  </script>
+</head>
+<body>
+  <div>hello world11</div>
+</body>
+	<script type="text/javascript" src="program.js">
+	</script>
+</html>

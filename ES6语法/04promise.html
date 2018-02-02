@@ -1,0 +1,131 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+
+  // 1.======什么是回调函数 === 函数做为参数的一部分， 他的调用时机不确定
+function handleFunc(fn) {
+    return fn("jim");
+}
+function callBack(name){
+  return name + 'hello'
+}
+var name  = handleFunc(callBack)
+console.log(name);
+
+var names = [1,2,3];
+names.map((ele,index)=>{
+  console.log(index,ele);
+})
+
+
+
+
+// 2.===== 回调地狱
+//  回调里面嵌套着回调(里层的回调对外层有依赖)
+setTimeout(function (name) {
+  var catList = name + ',';
+  setTimeout(function (name) {
+    catList += name + ',';
+    setTimeout(function (name) {
+      catList += name + ',';
+      setTimeout(function (name) {
+        catList += name + ',';
+        setTimeout(function (name) {
+          catList += name;
+
+          console.log(catList);
+        }, 1, 'Lion');
+      }, 1, 'Snow Leopard');
+    }, 1, 'Lynx');
+  }, 1, 'Jaguar');
+}, 1, 'Panther');
+
+
+// 模拟网络请求
+function getUserBaseInfo(userName,getUserDetail){
+  setTimeout(function(){
+      console.log("after 2 second",userName);
+      getUserDetail(userName)
+  }
+  )
+}
+
+function getUserDetail(userName,getUserCoin){
+  setTimeout(function(){
+      console.log("after 1 second",userName);
+      getUserCoin(1000);
+  },1000)
+}
+
+getUserBaseInfo("Tang", function(userName){
+    console.log("start Get UserDetail ");
+    getUserDetail(userName,function(count){
+      console.log("currentCoin",count);
+    })
+})
+
+
+
+
+// 解决方案==== promise =====
+// 思路 =====  将 callback函数 转换为链式调用
+// 1.resolve 代表success reject 代表抛出错误
+//2.  then可以不断链式调用
+
+// .then(result => {···}) then 处理逻辑
+// .catch(error => {···})  捕捉错误
+// .finally(() => {···});
+
+
+const promise = new Promise(function(resolve,reject){
+  if (0) {
+    resolve(123)
+  }else {
+    reject("error")
+  }
+})
+
+promise.then((value)=> {
+  console.log("currentValue",value);
+}).catch((error)=> {
+  console.log(error);
+})
+
+const getJSON = function(url) {
+  const promise = new Promise(function(resolve, reject){
+    let status = 201;
+    if (status == 200) {
+      resolve(url)
+    }else {
+      reject("error info != 200")
+    }
+
+  });
+
+  return promise;
+};
+
+getJSON("http://api.dongci-test.wmlives.com/api/opus/list-opus-recommend").then((json)=>(json + 123))
+.then((json)=> {
+  console.log("current",json);
+}).catch((error)=> {
+  console.log(error);
+})
+
+
+
+
+
+
+  </script>
+
+</head>
+<body>
+  <div>hello world11</div>
+</body>
+	<script type="text/javascript" src="program.js">
+	</script>
+</html>
