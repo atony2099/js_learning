@@ -5,6 +5,9 @@
   <title>Document</title>
   <script type="text/javascript">
 
+
+
+
   // 1.======什么是回调函数 === 函数做为参数的一部分， 他的调用时机不确定
 function handleFunc(fn) {
     return fn("jim");
@@ -19,6 +22,7 @@ var names = [1,2,3];
 names.map((ele,index)=>{
   console.log(index,ele);
 })
+
 
 
 
@@ -96,7 +100,8 @@ promise.then((value)=> {
 
 const getJSON = function(url) {
   const promise = new Promise(function(resolve, reject){
-    let status = 201;
+    let status = 200;
+    let status = 200;
     if (status == 200) {
       resolve(url)
     }else {
@@ -110,9 +115,9 @@ const getJSON = function(url) {
 
 getJSON("http://api.dongci-test.wmlives.com/api/opus/list-opus-recommend").then((json)=>(json + 123))
 .then((json)=> {
-  console.log("current",json);
+  console.log("current=====",json);
 }).catch((error)=> {
-  console.log(error);
+  console.log("======",error);
 })
 
 

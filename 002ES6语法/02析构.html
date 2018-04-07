@@ -1,0 +1,113 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+
+// 1. 嵌套解析
+// a. 数组的嵌套 ==============
+var [a, [[[c]]]] = [1,[[[1000]]]];
+console.log(a, c);
+
+//  b.对象的嵌套====
+let {name,info,info:{age}} = {name:"tang",info:{age:99,location:'changtai'}};
+console.log(name,info,age);
+
+
+// 2. 析构的不完全解析
+ let [x]  = [100,2,5,10];
+ console.log(x,"xxx")
+
+ // 3. 析构跟变量的顺序无关！！！！！！
+// 根据变量名找到同名的变量
+
+
+
+
+ // ========1. 析构析构实际使用
+ // a. 交换变量
+let first = 1;
+let second = 100;
+[second,first] = [first,second];
+console.log(first,second);
+
+
+// b.从函数返回多个值
+function exapmle(){
+  return {
+    firstName:"Tang",
+    firstAge:1000
+  }
+}
+
+let {firstName,firstAge} = exapmle()
+console.log(firstName,firstAge);
+
+
+
+
+
+console.log("=======析构==== default parms");
+// 1. 如果没有解析到对应的值，则是 undefined
+// 2，可以设置默认值，当没有取得对应的值的时候，默认值生效。
+let {zz} = {z:1000}
+let {kk = 100} = {z:1000};
+console.log(zz,kk);
+
+
+console.log("function ======  parmas");
+function move({x = 0, y = 0} = {}) {
+           return [x, y];
+ }
+ console.log(move({x: 3, y: 8}));// [3, 8]
+ console.log(move({x: 3}));// [3, 0]
+ console.log(move({}));// [0, 0]
+ console.log(move());// [0, 0]
+
+ // [函数参数进行结构赋值](https://www.cnblogs.com/shineLh/p/6877364.html)
+
+
+
+console.log("parmas=========1");
+
+function callName1({name,age =28}={}){
+  console.log(name, age); // tang .28
+}
+callName1({name:'tang'});
+
+
+console.log("parmas=========2");
+
+function callName2({name,age}={age:28}){
+  console.log(name, age); //
+}
+callName2({name:'tang'});// tang undefinf
+callName2(); // undefin 28
+
+// 对比：1. 都有一个默认的被结构对象， 如果有默认的被结构对象，就不用默认的被结构对象
+//      2. callName1 解构参数 还有一个默认值，如果没有结果到任何东西，就是用默认值。
+
+//
+b = 1000
+// console.log({a:100,b});
+
+var a = {name:100,age:10000}
+
+console.log({...a,b}); 
+
+
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+  <div>hello world</div>
+</body>
+	</script>
+</html>

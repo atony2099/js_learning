@@ -1,0 +1,143 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+
+    // 1.======== object 的创建方式
+    // a. 通过new object
+    var obj = new Object()
+    obj.name = "tang"
+    console.log(obj);
+
+    // b。通过 new function
+    function  obj2(){
+      this.name = "feng"
+    }
+    obj2 = new obj2()
+    console.log(obj2);
+
+
+    // 理解property =====
+    // c. 通过字面量==
+    var obj3 = {
+      name: 'lin'
+    }
+
+    console.log(obj3);
+
+
+    console.log("2. 理解property=========");
+    // 2. =========
+    //1.  每个function内部都有一个property指针，指向原型对象(可以理解为类)，
+    //2.  这个原型对象上面的属性和方法是所有实例对象共享的
+    //3. 实例对象内部也有一个property指针，指向原型对象
+    function Pro(){
+
+    }
+    Pro.prototype.name  = "TANG"
+    Pro.prototype.age = 1990
+    let pro1 = new Pro();
+    let  pro2 = new Pro()
+    console.log(pro1,pro2);
+
+    console.log(Pro.prototype.isPrototypeOf(pro1));
+    console.log(Pro.prototype.isPrototypeOf(pro1));
+
+
+    console.log("原型对象==========");
+    //  原型对象的构成  {constructor;其他数据方法}；
+    // 1.constrocto指向 构造函数 === 也就是他的对象类型
+    //  2. 其他=== 自己添加的
+    var jj = {
+      name:'kk'
+    }
+
+    function pp() {
+      this.name = "cc"
+    }
+    let l = new pp()
+    console.log(jj.constructor,l.constructor,jj,l);
+
+
+
+    console.log(" cretet======= object ");
+    // 创建对象推荐的方式 ==
+    function Objj(){
+      this.name = "jerry"
+    }
+
+    Objj.prototype.sayName = function (){
+      console.log(this.name);
+    }
+
+    let oo = new Objj()
+    console.log(oo);
+
+
+
+
+    console.log("\ncreate =========== class");
+    //本质上是一个构造函数=== 是构造函数的语法糖
+    class Tea {
+      constructor() {
+        this.age = 100
+      }
+    }
+    console.log(typeof(Tea));
+    console.log(Tea == Tea.prototype.constructor);
+
+
+
+    // 2. 静态方法
+    class Apple {
+      static getAge(){
+        console.log(10000);
+      }
+    }
+    Apple.getAge();
+
+
+    // this 的指向当前实例对象==== (在不单独使用这个方法的前提下)
+    class Logger {
+      constructor() {
+          this.printName = this.printName.bind(this);
+      }
+      printName(name = 'there') {
+        this.print(`Hello ${name}`);
+      }
+      print(text) {
+        console.log(text);
+      }
+    }
+    const logger = new Logger();
+    const { printName } = logger;
+    printName(); //
+
+
+
+
+
+
+  </script>
+
+<style media="screen">
+  img {
+    width: 800px
+  }
+</style>
+
+</head>
+
+<body>
+  <div>
+    <img src="http://www.2cto.com/uploadfile/Collfiles/20141010/20141010081957184.jpg"/>
+    <p> 1.  每个function内部都有一个property指针，指向原型对象(可以理解为类)，</p>
+    <p> 2.  这个原型对象上面的属性和方法是所有实例对象共享的 </p>
+    <p> 3.  实例对象内部也有一个property指针，指向原型对象</p>
+  </div>
+
+
+
+</body>
+</html>

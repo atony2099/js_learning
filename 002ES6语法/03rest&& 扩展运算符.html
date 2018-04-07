@@ -17,6 +17,11 @@ console.log(add(1, 2, 3));  // 6
 
 
 
+
+
+
+
+console.log("拓展运算符=======\n");
 //=====
 // 拓展运算符  数组———— ====将一个数组转为用逗号分隔的参数序列。
 // 对象的拓展运算符 ====  取出对象中所有值，拷贝新的对象
@@ -26,51 +31,35 @@ console.log(add(1, 2, 3));  // 6
   // 1 2 3
   console.log(1, ...[2, 3, 4], 5)
   // 1 2 3 4 5
+
+//2. 运用， 展开数组，入参
   function getAge(a,b,c){
-    console.log(a,b,c);
+    console.log("运用：",a,b,c);
   }
   getAge(...[4,5,6])
 
 
 
 
-
-
-
-// 2. 对象的拓展 ============
-
+// 2. 对象的拓展 ========= === 取出对象中所有属性，放置到另一个对象中
 // a
+console.log("对象的拓展=============");
 let z = { a: 3, b: 4 };
-let nnnn = { ...z}
-let kkkk = z;
-// let n = z;
-console.log(nnnn,kkkk);
+let nnnn1 = { ...z}
+let nnnn2 = {z};
+console.log(nnnn1,nnnn2);
 
+
+// 2.2 运用 ==== 合并两个对象=========
 // b. b1==== 同时赋值两个值..
 let ll = {a:1, b:3};
 let zz = {k:10,b:100}
 let oo = {...ll,...zz};
 console.log(oo);
-
 //  b2========= 覆盖值
 let size = {width:99,height:88};
 let ovrideSize = {...size, height:77};
 console.log(ovrideSize);
-
-
-
-// ==== rest
-
-
-
-
-
-
-
-
-
-
-
 
 
   </script>

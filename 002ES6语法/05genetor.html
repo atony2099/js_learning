@@ -1,0 +1,187 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+
+
+// 1. 是什么？ === 返回一个遍历器对象，指向 g内部的状态
+console.log("1===================generator");
+function* g() {
+    yield 'a';
+    yield 'b';
+    yield 'c';
+    return 'ending';
+}
+
+var fun = g();
+console.log(fun);
+console.log(fun.next());
+console.log(fun.next());
+console.log(fun.next());
+console.log(fun.next());
+console.log(fun.next());
+
+// 2.  yield 可以理解为一个有状态的return(运行到return会暂停函数的执行) (有懒加载属性，只有执行next才会执行)
+
+// 2. 1. 遇到return的时候暂停
+console.log("yield..状态1. ===================");
+function* k(){
+  yield 100 + 99;
+  return 200;
+}
+var z = k();
+console.log(z);
+console.log(z.next());
+console.log(z.next());
+console.log(z.next());
+
+// 如果没有遇到 return == 则 返回 {value:undefind,done:true}
+function* kk(){
+  yield 100 + 99;
+  // return 2000;
+}
+var zz = kk();
+console.log(zz);
+console.log(zz.next());
+console.log(zz.next());
+console.log(zz.next());
+
+
+
+console.log("\nyield 加入参数++++++++++++++\n");
+function* f() {
+  for(var i = 0; true; i++) {
+    var reset = yield i;
+    if(reset) { i = 100; }
+  }
+}
+var g = f();
+console.log(g.next());   // { value: 0, done: false }
+console.log(g.next()); // { value: 1, done: false }
+console.log(g.next(true)); // { value: 101, done: false }
+console.log("yield 加入参数++++++++++++++");
+
+
+// 3.===== d加入参数
+function* foo(x) {
+  var y = 100 * (yield (x));
+  var z = yield (y / 3);
+  return (x + y + z);
+}
+
+var a = foo(5);
+ // Object{value:6, done:false}
+console.log(a.next());
+console.log(a.next());
+console.log(a.next());
+
+var b = foo(5);
+console.log(b.next());
+console.log(b.next(2)); 200 / 3
+console.log(b.next(5)); // 5 + 5  +{ y = 2 * 100 }
+
+
+// 4. for ...of
+console.log("for ----- of ");
+function* foo() {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  yield 5;
+  return 6;
+}
+
+for (let v of foo()) {
+  console.log(v);
+}
+// 1 2 3 4 5
+
+
+console.log("throw ================ 111111111111");
+// 5. throw =====================
+var gg = function* () {
+  try {
+    yield 12
+  } catch (e) {
+    console.log('=====内部捕获', e);
+  }
+};
+var i = gg();
+console.log(i.next());
+i.throw(new Error("gg == erorr"))
+try {
+  i.throw(new Error("gg == erorr"))
+  i.throw(new Error("gg22 == erorr"))
+} catch (e)  {
+  console.log("====== 捕获外部错误",e);
+}
+
+
+
+console.log("throw ===================== 22222");
+// throw 会顺带执行 yield=
+var g = function* () {
+  while(true){
+    try {
+      yield console.log("hello");
+    } catch (e) {
+      console.log(e,"内部捕获");
+    }
+  }
+};
+
+var i = g();
+i.next();
+i.throw(new Error('出错了！')); //
+i.throw(new Error('出错了222！'));
+i.next();
+i.next();
+
+
+function* gen(x){
+  try {
+    var y = yield console.log(x,"-----");;
+  } catch (e){
+    console.log(e);
+  }
+  return console.log(x,"========");;
+}
+
+var zz = gen(1);
+zz.next();
+zz.throw(new Error("err === fenglin"))
+zz.next();
+
+
+// 3. return ===  提前结束
+function* p() {
+  yield 'a';
+  yield 'b';
+  yield 'c';
+  return 'ending';
+}
+var fun = p();
+console.log(fun);
+console.log(fun.next());
+console.log(fun.return("gg"));
+console.log(fun.next());
+
+
+
+// ====== generator 执行真正
+
+
+  </script>
+
+</head>
+<body>
+    <a href="https://segmentfault.com/a/1190000002963487#articleHeader4">译 用Generators解决callback金字塔
+    </a>
+    <br/>
+    <a href="http://www.ruanyifeng.com/blog/2015/04/generator.html">Generator 函数的含义与用法</a>
+  <div>hello world11</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript">
+
+  // about this =====
+/*
+
+  this==是运行时 绑定的，  指向它的调用者
+  that = this, 
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+      // call,apply
+      // 1. ================ 执行某个函数 并绑定到某个对象上
+
+    // window.color = 'red';
+    // document.color = 'yellow';
+    // var s1 = {color: 'blue' };
+    //
+    // function changeColor(){
+    //     console.log(this.color);
+    // }
+    //
+    // changeColor.call(window);   //red
+    // changeColor.call(document); //yellow
+    // changeColor.call(this);     //red
+    // changeColor.call(s1);       //blue
+
+
+    window.number = 'one';
+    document.number = 'two';
+
+    var s1 = {number: 'three' };
+    function changeColor(){
+        console.log(this.number);
+    }
+
+    changeColor.apply();         //one (默认传参)
+    changeColor.apply(window);   //one
+    changeColor.apply(document); //two
+    changeColor.apply(this);     //one
+    changeColor.apply(s1);       //three
+
+
+
+//2.  ===== 不同点 === 传递参数的方式不一样
+let name = "tang";
+let age = 18;
+
+function logUser(name,age){
+    console.log(name,age);
+}
+
+logUser.call(window,name,age)
+logUser.apply(window,[name,age])
+
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+  <div>hello world</div>
+</body>
+	</script>
+</html>

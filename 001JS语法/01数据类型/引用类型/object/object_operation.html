@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    //1. =============对象的冻结
+    // 冻结之后不能做任何修改:prevent object from any changing
+
+    var testO = {
+      name:1
+    }
+    // testO.name = 2;
+    Object.freeze(testO)
+    testO.name = 100;
+
+    console.log(testO.name);
+
+
+
+    //1. =============对象的冻结
+    var test1 = {
+      name:1
+    }
+
+    var test2 = {
+      name:1
+    }
+
+    console.log(test1.name == test2.name);
+
+
+    //1. =============对象的冻结
+    //1. =============对象的冻结
+    //1. =============对象的冻结
+    //1. =============对象的冻结
+    //1. =============对象的冻结
+    //1. =============对象的冻结
+
+    </script>
+
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -6,6 +6,9 @@
     // 数组 增加
     var ar1 = [1,2,3];
     var ar2 = [4,5];
+
+
+
 // ===========concat
 // contact对原数组无影响
     var arrLa = ar1.concat(ar2)
@@ -43,14 +46,6 @@ console.log(kk1,kk2,kk3);
 // var gg =
 
 
-
-
-
-
-
-
-
-
 // ========= findIndexof
 var array3 = [5, 12, 8, 130, 44];
 
@@ -62,6 +57,38 @@ console.log(array3.findIndex(findFirstLargeNumber));
 
 console.log(!-1);
 
+
+
+// ==== 数组遍历  forin 里面的 代表的是index(key)，不是变量值 == 迭代index
+console.log(`数组的遍历
+  `);
+var bbb = ["tan","lin"]
+for ( kk  in bbb) {
+  console.log(bbb[kk],"kkk");
+}
+
+for (let value of  bbb) {
+  console.log(value,"offffff");
+}
+
+let map1 = new Map([["age",120],['name','david']])
+for ([a,b] of map1) {
+  console.log(a,b,"map111");
+}
+
+
+
+
+
+
+
+// === for each
+var nnames = ["zz","mm"]
+
+nnames.forEach(print)
+function print(name){
+  console.log("hello ===="  + name );
+}
 
   </script>
 </head>

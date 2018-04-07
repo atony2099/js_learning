@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+
+    var sleep = function (time) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            // 模拟出错了，返回 ‘error’
+            if (time > 500) {
+                resolve(time);
+            }else {
+                reject('error==')
+            }
+
+        }, time);
+      })
+    };
+
+
+    var start0 = async function () {
+          console.log('start0');
+          let reuslt0 =  await sleep(600);
+          let reuslt1 =  await sleep(300);
+          let reuslt2 =  await sleep(710);
+          return reuslt2;
+          // let result1 =  await sleep(300); // 这里得到了一个返回错误
+
+          // return result1;
+    };
+
+
+
+    start0().then((data)=>{
+      console.log(data,"right data");
+    }).catch( error=>{
+        console.log(error ,"I GET ");
+    })
+
+
+    console.log("\nreturn test=========");
+    var start = async function () {
+      try {
+          console.log('start');
+          let result1 =  await sleep(800); // 这里得到了一个返回错误
+          console.log(result1);
+          let reuslt2 =   await sleep(1000);
+          console.log(reuslt2);
+          return reuslt2
+          console.log('end');
+      } catch (err) {
+          console.log(err,"error hanppen"); // 这里捕捉到错误 `error`
+      }
+    };
+    console.log(start(),"get start");
+    start()
+
+    console.log(start())
+    console.log("async========");
+
+
+    // 1.aynce 总是返回 promise
+    async function foo (){
+      let p  =   await 'a';
+      return p;
+    }
+    console.log(foo(),"gggg");
+
+
+
+// 2. asynce 遇到await就会获得一个promise 对象 。同时暂停函数的执行
+
+
+
+
+
+
+
+
+    </script>
+
+  </head>
+  <body>
+
+  </body>
+</html>
